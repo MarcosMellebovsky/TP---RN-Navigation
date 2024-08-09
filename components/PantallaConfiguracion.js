@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-export default function HomeScreen({ navigation }) {
+export default function PantallaConfiguracion({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
-      <Button title="Go to Details" onPress={() => navigation.navigate('Details')} />
+      <Text style={styles.text}>Settings Screen</Text>
+      <Button title="Go to Info" onPress={() => navigation.navigate('Informacion')} />
     </View>
   );
 }
@@ -13,7 +13,7 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff', 
+    backgroundColor: '#e6e6fa',
     alignItems: 'center',
     justifyContent: 'center',
   },

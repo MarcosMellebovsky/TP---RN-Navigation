@@ -1,14 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function ContactScreen({ route }) {
-  const { name, phone } = route.params;
-
+export default function PantallaDetalles() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Contact Screen</Text>
-      <Text style={styles.text}>Name: {name}</Text>
-      <Text style={styles.text}>Phone: {phone}</Text>
+      <Text style={styles.text}>Details Screen</Text>
     </View>
   );
 }
@@ -16,7 +12,7 @@ export default function ContactScreen({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f8ff',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },

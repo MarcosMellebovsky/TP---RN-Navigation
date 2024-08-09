@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-export default function SettingsScreen({ navigation }) {
+export default function PantallaInformacion() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Settings Screen</Text>
-      <Button title="Go to Info" onPress={() => navigation.navigate('Info')} />
+      <Text style={styles.text}>Info Screen</Text>
     </View>
   );
 }

@@ -3,73 +3,70 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet } from 'react-native';
 
-import HomeScreen from './components/HomeScreen';
-import DetailsScreen from './components/DetailsScreen';
-import ProfileScreen from './components/ProfileScreen';
-import SettingsScreen from './components/SettingsScreen';
-import ContactScreen from './components/ContactScreen';
-import InfoScreen from './components/InfoScreen';
+import PantallaInicio from './components/PantallaInicio';
+import PantallaDetalles from './components/PantallaDetalles';
+import PantallaPerfil from './components/PantallaPerfil';
+import PantallaConfiguracion from './components/PantallaConfiguracion';
+import PantallaContacto from './components/PantallaContacto';
+import PantallaInformacion from './components/PantallaInformacion';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function HomeStack() {
+function InicioStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="HomeMain" component={HomeScreen} />
-      <Stack.Screen name="Details" component={DetailsScreen} />
+      <Stack.Screen name="InicioPrincipal" component={PantallaInicio} />
+      <Stack.Screen name="Detalles" component={PantallaDetalles} />
     </Stack.Navigator>
   );
 }
 
-function ProfileStack() {
+function PerfilStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="ProfileMain" component={ProfileScreen} />
-      <Stack.Screen name="Contact" component={ContactScreen} />
+      <Stack.Screen name="PerfilPrincipal" component={PantallaPerfil} />
+      <Stack.Screen name="Contacto" component={PantallaContacto} />
     </Stack.Navigator>
   );
 }
 
-function SettingsStack() {
+function ConfiguracionStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="SettingsMain" component={SettingsScreen} />
-      <Stack.Screen name="Info" component={InfoScreen} />
+      <Stack.Screen name="ConfiguracionPrincipal" component={PantallaConfiguracion} />
+      <Stack.Screen name="Informacion" component={PantallaInformacion} />
     </Stack.Navigator>
   );
 }
-
 
 export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-  screenOptions={({ route }) => ({
-    tabBarIcon: ({ color, size }) => {
-      let iconName;
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ color, size }) => {
+            let nombreIcono;
 
-      if (route.name === 'Home') {
-        iconName = 'home';
-      } else if (route.name === 'Profile') {
-        iconName = 'person';
-      } else if (route.name === 'Settings') {
-        iconName = 'settings';
-      }
+            if (route.name === 'Inicio') {
+              nombreIcono = 'home';
+            } else if (route.name === 'Perfil') {
+              nombreIcono = 'person';
+            } else if (route.name === 'Configuracion') {
+              nombreIcono = 'settings';
+            }
 
-      return <Ionicons name={iconName} size={size} color={color} />;
-    },
-    tabBarActiveTintColor: 'tomato',
-    tabBarInactiveTintColor: 'gray',
-  })}
->
-  <Tab.Screen name="Home" component={HomeStack} />
-  <Tab.Screen name="Profile" component={ProfileStack} />
-  <Tab.Screen name="Settings" component={SettingsStack} />
-</Tab.Navigator>
-
+            return <Ionicons name={nombreIcono} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: 'tomato',
+          tabBarInactiveTintColor: 'gray',
+        })}
+      >
+        <Tab.Screen name="Inicio" component={InicioStack} />
+        <Tab.Screen name="Configuracion" component={ConfiguracionStack} />
+        <Tab.Screen name="Perfil" component={PerfilStack} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
