@@ -7,9 +7,14 @@ import { Ionicons } from '@expo/vector-icons';
 import PantallaInicio from './components/PantallaInicio';
 import PantallaDetalles from './components/PantallaDetalles';
 import PantallaPerfil from './components/PantallaPerfil';
-import PantallaConfiguracion from './components/PantallaConfiguracion';
 import PantallaContacto from './components/PantallaContacto';
 import PantallaInformacion from './components/PantallaInformacion';
+import PantallaAboutQR from './components/PantallaAboutQR';
+import PantallaClima from './components/PantallaClima';
+import PantallaContactosList from './components/PantallaContactosList';
+import PantallaEmergencia from './components/PantallaEmergencia';
+import EscanearQR from './components/PantallaEscanearQR';
+import PantallaLlamadoEmergencia from './components/PantallaLlamadoEmergencia';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -35,8 +40,22 @@ function PerfilStack() {
 function ConfiguracionStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="ConfiguracionPrincipal" component={PantallaConfiguracion} />
+      <Stack.Screen name="ContactoPrincipal" component={PantallaContactosList} />
       <Stack.Screen name="Informacion" component={PantallaInformacion} />
+      <Stack.Screen name="Clima" component={PantallaClima} />
+      <Stack.Screen name="Contactos" component={PantallaContactosList} />
+      <Stack.Screen name="AboutQR" component={PantallaAboutQR} />
+      <Stack.Screen name="EscanearQR" component={EscanearQR} />
+
+    </Stack.Navigator>
+  );
+}
+function EmergenciaStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Emergencia" component={PantallaEmergencia} />
+      <Stack.Screen name="PantallaLlamadoEmergencia" component={PantallaLlamadoEmergencia} />
+
     </Stack.Navigator>
   );
 }
@@ -47,25 +66,34 @@ export default function App() {
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color, size }) => {
-            let nombreIcono;
+            let iconName;
 
             if (route.name === 'Inicio') {
-              nombreIcono = 'home';
-            } else if (route.name === 'Perfil') {
-              nombreIcono = 'person';
-            } else if (route.name === 'Configuracion') {
-              nombreIcono = 'settings';
+              iconName = 'home';
+            }  
+            else if (route.name === 'Emergencia') {
+              iconName = 'call';  
+            }
+            else if (route.name === 'Contactos') {
+              iconName = 'people';
+            }
+            
+            else if (route.name === 'Perfil') {
+              iconName = 'person';
             }
 
-            return <Ionicons name={nombreIcono} size={size} color={color} />;
+            return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
         })}
       >
         <Tab.Screen name="Inicio" component={InicioStack} />
-        <Tab.Screen name="Configuracion" component={ConfiguracionStack} />
+        <Tab.Screen name="Emergencia" component={EmergenciaStack} />
+
+        <Tab.Screen name="Contactos" component={ConfiguracionStack} />
         <Tab.Screen name="Perfil" component={PerfilStack} />
+
       </Tab.Navigator>
     </NavigationContainer>
   );

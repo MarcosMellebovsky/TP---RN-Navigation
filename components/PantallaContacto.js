@@ -6,9 +6,9 @@ export default function PantallaContacto({ route }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Contact Screen</Text>
-      <Text style={styles.text}>Name: {nombre}</Text>
-      <Text style={styles.text}>Phone: {telefono}</Text>
+      <Text style={styles.text}>Pantalla contacto</Text>
+      <Text style={styles.text}>Nombre: {nombre}</Text>
+      <Text style={styles.text}>Telefono: {telefono}</Text>
     </View>
   );
 }

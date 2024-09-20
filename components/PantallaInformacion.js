@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 export default function PantallaInformacion() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Info Screen</Text>
+      <Text style={styles.text}>Pantalla de Informacion</Text>
     </View>
   );
 }

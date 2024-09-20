@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 export default function PantallaDetalles() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Details Screen</Text>
+      <Text style={styles.text}>Pantalla detalles</Text>
     </View>
   );
 }

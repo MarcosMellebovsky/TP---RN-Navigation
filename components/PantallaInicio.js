@@ -4,8 +4,8 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 export default function PantallaInicio({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
-      <Button title="Go to Details" onPress={() => navigation.navigate('Detalles')} />
+      <Text style={styles.text}>Pantalla de Inicio</Text>
+      <Button title="Ir a detalles" onPress={() => navigation.navigate('Detalles')} />
     </View>
   );
 }
