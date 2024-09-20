@@ -41,12 +41,7 @@ function ConfiguracionStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="ContactoPrincipal" component={PantallaContactosList} />
-      <Stack.Screen name="Informacion" component={PantallaInformacion} />
-      <Stack.Screen name="Clima" component={PantallaClima} />
-      <Stack.Screen name="Contactos" component={PantallaContactosList} />
-      <Stack.Screen name="AboutQR" component={PantallaAboutQR} />
-      <Stack.Screen name="EscanearQR" component={EscanearQR} />
-
+      
     </Stack.Navigator>
   );
 }
